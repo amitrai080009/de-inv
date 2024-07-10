@@ -1,0 +1,3 @@
+date,transaction_in_out,item_name,IMEI,brand,item_condition,received_from,particular_name,ref_no,current_location,current_status,warranty_status,warranty_from,warranty_to,issue_flag
+20-11-2022,in,IRA,1.23456E+14,tab,New,AIF,pappu,jsadhkhsd`1233,Amreli,New,under warranty,20-11-2022,20-11-2022,0
+Note: delete this and first row which is sample data.,,,,,,,,,,,,,,

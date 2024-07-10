@@ -1,0 +1,2 @@
+date,transaction_in_out,item_name,IMEI,brand,item_condition,received_from,particular_name,ref_no,current_location,current_status,warranty_status,warranty_from,warranty_to,issue_flag
+20-06-2024,IN,TABLET,123456789,IRA,NEW,AIF Office Delhi,Mukesh Bhai,AIF/2024-25/001,AIF Office Amreli,NEW,UNDER WARRANTY,20-06-2024,19-06-2025,0

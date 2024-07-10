@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.multipart.maxSize" value="2097152" />
+	
+	<package name="default" namespace="/" extends="struts-default">
+
+
+		<action name="blacklisting">
+			<result>/blacklisting.jsp</result>
+		</action>
+
+		<action name="organogram">
+			<result>/organogram.html</result>
+		</action>
+
+		<action name="introduction">
+			<result>/introduction.html</result>
+		</action>
+
+		<action name="objectives">
+			<result>/objectives.html</result>
+		</action>
+
+		<action name="visionandmission">
+			<result>/visionandmission.html</result>
+		</action>
+
+		<action name="warehouse">
+			<result>/warehouse.html</result>
+		</action>
+
+		<action name="eqp_supp">
+			<result>/eqp_supp.jsp</result>
+		</action>
+
+		<action name="bod">
+			<result>/bod.html</result>
+		</action>
+
+		<action name="officer">
+			<result>/officer.html</result>
+		</action>
+
+		<action name="md">
+			<result>/md.html</result>
+		</action>
+
+		<action name="roll">
+			<result>/roll.html</result>
+		</action>
+
+		<action name="docs">
+			<result>/docs.html</result>
+		</action>
+
+		<action name="warehouse">
+			<result>/warehouse.html</result>
+		</action>
+
+		<action name="warehouse-details">
+			<result>/warehouse-details.html</result>
+		</action>
+
+		<action name="warehouse_upmscl">
+			<result>/warehouse_upmscl.html</result>
+		</action>
+
+		<action name="warehouse_upmscl">
+			<result>/warehouse_upmscl.html</result>
+		</action>
+
+		<action name="gallery">
+			<result>/gallery.html</result>
+		</action>
+
+		<action name="rti-official">
+			<result>/rti-official.html</result>
+		</action>
+
+		<action name="download">
+			<result>/download.html</result>
+		</action>
+
+		<action name="contact-us">
+			<result>/contact-us.html</result>
+		</action>
+
+		<action name="View_Circular">
+			<result>/view_circular.jsp</result>
+		</action>
+
+		<action name="view_tender">
+			<result>/view_tender.jsp</result>
+		</action>
+
+		<!-- here comes the actions with action classes -->
+		<action name="index" class="com.upmscl.service.reporting.TenderReport"
+			method="execute">
+			<result name="success">/index.jsp</result>
+		</action>
+
+		<!--<action name="" class="com.upmscl.service.reporting.TenderReport"
+			method="execute">
+			<result name="success">/index.jsp</result>
+		</action> -->
+
+		<!--<action name="">
+			<result name="success">login.jsp</result>
+		</action>-->
+
+		<action name="tenderdrug"
+			class="com.upmscl.service.reporting.TenderReport" method="execute">
+			<result name="success">/tenderdrug.jsp</result>
+		</action>
+
+		<action name="tenderequip"
+			class="com.upmscl.service.reporting.TenderReport" method="execute">
+			<result name="success">/tenderequip.jsp</result>
+		</action>
+
+		<action name="tenderdetails"
+			class="com.upmscl.service.reporting.TenderReport" method="execute">
+			<result name="success">/tenderdetails.jsp</result>
+		</action>
+
+		<action name="tendercovid"
+			class="com.upmscl.service.reporting.TenderReport" method="execute">
+			<result name="success">/tendercovid.jsp</result>
+		</action>
+
+		<action name="vacancy"
+			class="com.upmscl.service.reporting.VacancyReport" method="execute">
+			<result name="success">/vacancy.jsp</result>
+		</action>
+
+		<action name="tender-action"
+			class="com.upmscl.service.reporting.TenderReport" method="execute">
+			<result name="success">/managetender.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+
+		<action name="vacancy-action"
+			class="com.upmscl.service.reporting.TenderReport" method="execute">
+			<result name="success">/managevacancy.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+
+		<action name="upload-vacancy"
+			class="com.upmscl.action.AdminController" method="uploadVacancy">
+			<result name="success">/managevacancy.jsp</result>
+			<result name="error">/managevacancy.jsp</result>
+		</action>
+
+
+		<action name="login">
+			<result>/login.jsp</result>
+		</action>
+
+		<action name="error">
+			<result>/error.jsp</result>
+		</action>
+
+		<!--<action name="login-action" class="com.upmscl.action.LoginAction"
+			method="login">
+			<result name="success">Inventory/index.html</result>
+			<result name="login">/login.jsp</result>
+		</action> -->
+
+		<!--<action name="home" class="com.upmscl.service.reporting.TenderReport"
+			method="execute">
+			<result name="success">/home.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>-->
+
+		<action name="loadCaptcha" class="com.upmscl.service.CaptchaService">
+		</action>
+
+		<action name="logout" class="com.upmscl.action.LoginAction"
+			method="logout">
+			<result name="logout">/login.jsp</result>
+		</action>
+
+		<action name="circular-action"
+			class="com.upmscl.service.reporting.TenderReport" method="execute">
+			<result name="success">/managecircular.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+
+		<action name="upload-circular"
+			class="com.upmscl.action.AdminController" method="uploadCircular">
+			<result name="success">/managecircular.jsp</result>
+			<result name="error">/managecircular.jsp</result>
+		</action>
+
+		<action name="AddVacancy" class="com.upmscl.dao.DaoAdmin">
+			<result name="VACANCYADDED">/addvacancy.jsp</result>
+		</action>
+
+		<action name="corrigendum-action"
+			class="com.upmscl.service.CorrigendumService">
+			<result>/corrigendum.jsp</result>
+		</action>
+
+		<action name="upload-tender"
+			class="com.upmscl.action.AdminController" method="uploadTender">
+			<result name="success">/managetender.jsp</result>
+			<result name="error">/managetender.jsp</result>
+		</action>
+
+		<action name="upload-corrigendum"
+			class="com.upmscl.action.AdminController" method="uploadCorrigendum">
+			<result name="success">/corrigendum.jsp</result>
+			<result name="error">/corrigendum.jsp</result>
+		</action>
+
+		<action name="managensq">
+			<result name="nsquploaded">/managensq.jsp</result>
+		</action>
+
+		<action name="get-tender" class="com.upmscl.service.UpdateTenderService">
+			<result name="T_UPDATE">/updatetender.jsp</result>
+		</action>
+
+		<action name="update-tender"
+			class="com.upmscl.service.UpdateTenderService" method="updatetender">
+			<result name="tupdated">/updatetender.jsp</result>
+		</action>
+
+		<action name="get-circular"
+			class="com.upmscl.service.UpdateCircularService">
+			<result name="C_UPDATE">/updatecircular.jsp</result>
+		</action>
+
+		<action name="update-circular"
+			class="com.upmscl.service.UpdateCircularService"
+			method="updatecircular">
+			<result name="cupdated">/updatecircular.jsp</result>
+		</action>
+
+	</package>
+
+<!-- from here
+	the inventory management system has been started  -->
+
+	<include file="deinventory.xml"/>
+
+	<!-- from here the inventory management system has been started  -->
+
+	
+</struts>

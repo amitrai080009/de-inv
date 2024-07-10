@@ -1,0 +1,141 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	display: table;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background: #eee;
+}
+
+img {
+	width: 30%;
+	padding-bottom: 20px;
+}
+
+.logo {
+	text-align: center;
+}
+
+body {
+	display: table-cell;
+	vertical-align: middle;
+	background-color: #0087c138;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.box {
+	margin: auto;
+	padding: 20px 20px;
+	background: #fff;
+	box-shadow: 0 0 20px rgba(0, 0, 0, .15);
+	font: 12px/15px Arial, Helvetica, sans-serif;
+	color: #666;
+}
+
+h2 {
+	margin: 0 10px;
+	border-bottom: 1px solid #e4e4e4;
+	margin-bottom: 22px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+form {
+	padding: 0 10px 10px;
+}
+
+form::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+label {
+	position: absolute;
+	left: -9999px;
+}
+
+input {
+	position: relative;
+	z-index: 10;
+	margin: 0;
+	padding: 0 15px;
+	width: 100%;
+	height: 35px;
+	border: 1px solid #ccc;
+	font-size: 14px;
+}
+
+input:focus {
+	z-index: 15;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+	outline: 0;
+}
+
+#password {
+	top: -1px;
+	margin-bottom: 5px;
+}
+
+.register-form {
+	display: none;
+}
+
+.register-form input {
+	margin: -1px 0;
+}
+
+#first-name {
+	margin-top: 5px;
+}
+
+.captcha {
+	margin: 10px 0;
+}
+
+.captcha label {
+	position: relative;
+	left: 0;
+}
+
+#submit {
+	float: unset;
+	padding: 0;
+	width: 100%;
+	background: rgb(76, 148, 222);
+	color: #fff;
+	border-color: rgb(64, 134, 206);
+	cursor: pointer;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 20px;
+	text-transform: uppercase;
+}
+
+#submit:hover {
+	color: #fff;
+	background: #337ac3;
+	border-color: #16c;
+}
+
+#submit ~ a {
+	display: block;
+	float: left;
+	width: 120px;
+	text-decoration: none;
+	color: #666;
+}
+
+#submit ~ a:hover {
+	text-decoration: underline;
+}
+
+.container {
+	width: 30%;
+}
+

@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.multipart.maxSize" value="2097152" />
+
+	<package name="deinventory" extends="default,json-default" namespace="/">
+	
+
+		<action name="">
+			<result name="success">login.jsp</result>
+		</action>
+
+		<action name="login-action" class="com.upmscl.action.LoginAction"
+			method="login">
+			<result name="success" type="redirectAction">dehome</result>
+			<result name="login">/login.jsp</result>
+		</action>
+
+		<action name="dehome" class="com.de.reporting.DeReport" method="execute">
+			<result name="success">/dehome.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		
+		<action name="dehome_filter_action" class="com.de.reporting.DeReportFilterData" method="execute">
+			<result name="success">/dehome.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+
+		<!-- upload file of item master to item master table mysql -->
+		
+		
+		<!--Availabe Stock in Office with remarks status of the item -->
+		<!--/////////////////////////////////////////////////////////-->
+		
+		<action name="de_available_stock" class="com.de.reporting.InOfficeAvailableReport" method="execute">
+			<result name="success">/de_available_stock.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		
+		
+		
+		<!--/////////////////////////////////////////////////////////-->
+		<!--Availabe Stock in Office with remarks status of the item -->
+		
+		
+		<!--IN Repair Stock in Office with remarks status of the item -->
+		<!--/////////////////////////////////////////////////////////-->
+		
+		<action name="de_inrepair_stock" class="com.de.reporting.InTransactionReport" method="execute">
+			<result name="success">/de_inrepair_stock.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		
+		
+		
+		<!--/////////////////////////////////////////////////////////-->
+		<!--IN Repair Stock in Office with remarks status of the item -->
+
+		<action name="uploaditem" class="com.de.reporting.ItemReport"
+			method="execute">
+			<result>/de_upload_item.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+
+		<action name="de_upload_item" class="com.de.action.UploadAction">
+			<result name="success">/de_upload_item.jsp</result>
+			<result name="input">/de_upload_item.jsp</result>
+		</action>
+
+		<!-- upload file of item master to item master table mysql -->
+
+		<!--///////////////////////////////////////////////////////////////////////////// -->
+		<!--Transaction data actions are mapped here -->
+		<action name="de_transaction" class="com.de.reporting.TransactionReport">
+			<result>/de_transaction.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+
+		<action name="fetchTransaction" class="com.de.action.TransactionAction">
+			<result name="success">/de_transaction.jsp</result>
+			<result name="error">/de_transaction.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+
+		<action name="addTransaction"
+			class="com.de.action.AddTransactionAction" method="addTransaction">
+			<!-- this action is for adding stock details -->
+			<result name="success">/de_transaction.jsp</result>
+			<result name="error">/de_transaction.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+
+		<!--Transaction data actions are mapped here -->
+		<!--///////////////////////////////////////////////////////////////////////////// -->
+		
+		<!-- Return Item struts XML configuration-->
+		<!--////////////////////////////////////////////////////////////////////////////// -->
+		<action name="de_return_item" class="com.de.reporting.TransactionReport">
+			<result>/de_return_item.jsp</result>
+		</action>
+		
+		<action name="fetchIssueDetails" class="com.de.action.FetchIssueAction">
+			<result name="success">/de_return_item.jsp</result>
+			<result name="error">/de_return_item.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		
+		<action name="returnItemAction" class="com.de.action.ReturnItemAction" method="returnItem">
+			<result name="success">/de_return_item.jsp</result>
+			<result name="error">/de_return_item.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		<!-- Return Item action Transaction-->
+		<!--////////////////////////////////////////////////////////////////////////////// -->
+		
+		
+		<!-- PCF Upload Form struts XML configuration-->
+		<!--////////////////////////////////////////////////////////////////////////////// -->
+		
+		<action name="de_pcf_upload" class="com.de.reporting.TransactionReport">
+			<result>/de_pcf_upload.jsp</result>
+		</action>
+		
+		<action name="fetchIssueDetailsPcf" class="com.de.action.FetchIssueAction">
+			<result name="success">/de_pcf_upload.jsp</result>
+			<result name="error">/de_pcf_upload.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		
+		<action name="upload_pcf_action" class="com.de.action.UploadPCFAction" method="uploadPcf">
+			<result name="success">/de_pcf_upload.jsp</result>
+			<result name="error">/de_pcf_upload.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		
+		
+		<!-- PCF Upload Form action Transaction-->
+		<!--////////////////////////////////////////////////////////////////////////////// -->
+		
+		
+
+		<action name="de_search_item">
+			<result>/de_search_item.jsp</result>
+		</action>
+		
+		<action name="fetchIssueTransaction" class="com.de.reporting.IssueTransactionReport">
+			<result name="success">/de_search_item.jsp</result>
+			<result name="error">/de_search_item.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		
+		
+		<!-- add/issue items to database-->
+
+		<action name="de_issue_item_action" class="com.de.action.CountryAction">
+			<result>/de_issue_item_school.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+
+		<!-- <action name="de_issue_item_action"
+		class="com.de.reporting.ItemReport" method="execute">
+            <result name="success">/de_issue_item_school.jsp</result>
+        </action> -->
+
+		<action name="de_add_item"
+			class="com.de.action.AddItemAction" method="addItem">  <!-- this
+			action is for adding stock details -->
+			<result name="success">/de_issue_item_school.jsp</result>
+			<result name="error">/de_issue_item_school.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+
+
+		<!-- Issue item to other official-->
+
+		<action name="de_issue_item_official"
+			class="com.de.reporting.IssueOfficialReport">
+			<result>/de_issue_item_official.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		
+		<!-- Report Section in various reports-->
+		<action name="de_issue_item_report" class="com.de.action.CountryAction">
+			<result>/de_issue_item_report.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		
+		<action name="issue_item_report" class="com.de.reporting.IssueItemReport">
+			<result name="success">/de_issue_item_report.jsp</result>
+			<result name="error">/de_issue_item_report.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		<!-- Report Section in various reports-->
+
+		
+
+		<!-- <action name="de_issue_item_action"
+		class="com.de.reporting.ItemReport" method="execute">
+            <result name="success">/de_issue_item_school.jsp</result>
+        </action> -->
+
+		<action name="de_issue_official"
+			class="com.de.action.IssueOfficialAction" method="issueOfficial">
+			<result name="success">/de_issue_item_official.jsp</result>
+			<result name="error">/de_issue_item_official.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+
+		<!-- Issue item to other official -->
+
+		<action name="de_stock_action"
+			class="com.de.reporting.StockReport" method="execute"> <!-- this
+			action is for getting stock report -->
+			<result name="success">/de_add_stock.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+
+		<action name="de_add_stock"
+			class="com.de.action.AddStockAction" method="addStock">  <!-- this
+			action is for adding stock details -->
+			<result name="success" type="redirectAction">de_stock_action</result>
+			<result name="error">/de_add_stock.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+
+		<action name="search" class="com.de.action.SearchAction"
+			method="execute">
+			<result type="json">
+				<param name="root">results</param>
+			</result>
+		</action>
+
+		<action name="searchProducts" class="com.de.action.SearchActionNew"
+			method="execute">
+			<result type="json">
+				<param name="root">products</param>
+			</result>
+		</action>
+
+
+		<!--Testing purpose -->
+		<action name="employee">
+			<result>/employee.jsp</result>
+		</action>
+		
+		<action name="userList" class="com.de.action.TransactionAction" method="execute">
+			<result type="json" />
+        </action>
+
+
+		<!-- action classes and method  -->
+
+		<!--drop down -->
+
+		<action name="getCountries" class="com.de.action.CountryAction">
+			<result name="success">/dropdown.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+
+		<action name="getStates" class="com.de.action.StateAction">
+			<result type="json">
+				<param name="root">states</param>
+			</result>
+		</action>
+
+		<action name="getCities" class="com.de.action.CityAction">
+			<result type="json">
+				<param name="root">cities</param>
+			</result>
+		</action>
+
+		<!--drop down -->
+
+		<!--Testing codes -->
+		<action name="search">
+            <result>SearchRecord.jsp</result>
+        </action>
+		
+		
+		<action name="fetchRecord" class="com.de.action.FetchRecordAction">
+            <result name="success">SearchRecord.jsp</result>
+            <result name="error">SearchRecord.jsp</result>
+            <result name="login">/login.jsp</result>
+        </action>
+        
+        <!--JfreeChatrs Data Visualization Charts and Columns -->
+				<action name="showLaptopDistribution"
+					class="com.de.jfreecharts.LaptopDistributionAction">
+					<result name="success">/columnChart.jsp</result>
+				</action>
+
+				<action name="generateColumnChart" class="com.de.jfreecharts.LaptopDistributionAction" method="generateColumnChart">
+					<result type="stream">
+						<param name="contentType">image/png</param>
+						<param name="inputName">inputStream</param>
+						<param name="contentDisposition">inline;filename="columnChart.png"</param>
+						<param name="bufferSize">1024</param>
+					</result>
+				</action>
+
+		<action name="generatePieChart" class="com.de.jfreecharts.PieChartAction"
+			method="generatePieChart">
+			<result name="success">/pieChart.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		<action name="generateBarChart" class="com.de.jfreecharts.CcWiseLaptopDistributionAction" method="generateBarChart">
+					<result type="stream">
+						<param name="contentType">image/png</param>
+						<param name="inputName">inputStream</param>
+						<param name="contentDisposition">inline;filename="barChart.png"</param>
+						<param name="bufferSize">1024</param>
+					</result>
+				</action>
+
+		<!--JfreeChatrs Data Visualization Charts and Columns -->
+
+		<!-- <action name="generateChart" class="com.de.chartjs.LaptopDistributionAction" method="execute">
+            <result>/columnChart.jsp</result>
+        </action>-->
+
+	</package>
+</struts>
